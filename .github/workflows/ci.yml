@@ -1,0 +1,49 @@
+name: Node.js CI
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Use Node.js 18.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - run: npm ci
+
+            - run: npm run lint
+
+            - run: npm run prettier-check
+
+            - name: Build
+              run: tsc --outDir ./lib-check
+
+            - name: Check if ./lib is up to date
+              shell: pwsh
+              run: |
+                  Write-Host "./lib"
+                  Get-ChildItem ./lib -Recurse | Where-Object { ! $_.PSIsContainer } | ForEach-Object {(Get-Content -Raw -Path $_) -replace '\r\n','\n' | Set-Content -Path $_}
+                  $checksumLib = Get-ChildItem ./lib -Recurse | Where-Object { ! $_.PSIsContainer } | Get-FileHash -Algorithm SHA256 | Select-Object -ExpandProperty Hash
+                  Write-Host "$checksumLib`n"
+                  Write-Host "./lib-check"
+                  Get-ChildItem ./lib-check -Recurse | Where-Object { ! $_.PSIsContainer } | ForEach-Object {(Get-Content -Raw -Path $_) -replace '\r\n','\n' | Set-Content -Path $_}
+                  $checksumLibCheck = Get-ChildItem ./lib-check -Recurse | Where-Object { ! $_.PSIsContainer } | Get-FileHash -Algorithm SHA256 | Select-Object -ExpandProperty Hash
+                  Write-Host "$checksumLibCheck`n"
+                  if ($checksumLib -ne $checksumLibCheck) {
+                    Write-Error "./lib is not up to date!"
+                    $Host.SetShouldExit(1)
+                  } else {
+                    Write-Host "./lib is up to date!"
+                  }
