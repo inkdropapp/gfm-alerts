@@ -19,7 +19,7 @@ export default [
             nodeResolve(),
             babel({
                 presets: ['@babel/typescript', '@babel/preset-react'],
-                babelHelpers: 'inline'
+                babelHelpers: 'bundled'
             }),
             tsPlugin()
         ]

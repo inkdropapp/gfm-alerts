@@ -13,16 +13,16 @@ import { visit } from 'unist-util-visit';
 
 import { Config, defaultConfig } from '../config';
 
-const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => {
-    return (tree: any) => {
-        visit(tree, processNode(defaultConfig));
-    };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: any) => {
+    visit(tree, processNode(defaultConfig));
 };
 
 export default remarkGfmBlockquoteAdmonitionsPlugin;
 
-const processNode = (config: Config): BuildVisitor => {
-    return (node, _index, parent: import('unist').Node | undefined) => {
+const processNode =
+    (config: Config): BuildVisitor =>
+    (node, _index, parent: import('unist').Node | undefined) => {
         if (node.type != 'blockquote') {
             return;
         }
@@ -83,4 +83,3 @@ const processNode = (config: Config): BuildVisitor => {
             hName: 'div'
         };
     };
-};
