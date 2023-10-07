@@ -1,10 +1,11 @@
 {
     "name": "gfm-blockquote-admonitions",
-    "version": "0.0.0",
-    "description": "Inkdrop plugin to add GitHub Flavored Markdown blockquote admonitions",
+    "version": "1.0.0",
+    "description": "Inkdrop plugin to render GitHub beta blockquote-based admonitions",
     "main": "lib/gfm-blockquote-admonitions",
     "author": "Keisir",
     "license": "MIT",
+    "repository": "https://github.com/Keisir/inkdrop-gfm-blockquote-admonitions",
     "scripts": {
         "build": "rimraf --glob lib/* && rollup -c --bundleConfigAsCjs",
         "watch": "rollup -c --watch --bundleConfigAsCjs",
@@ -13,11 +14,9 @@
         "prettier-check": "prettier **/*.{ts,tsx,less,yml,json} --ignore-path .gitignore --check"
     },
     "engines": {
-        "inkdrop": ">=5.6.0"
+        "inkdrop": ">=5.6.0 <7"
     },
-    "dependencies": {
-        "remark-github-beta-blockquote-admonitions": "^2.1.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@babel/core": "^7.23.0",
         "@babel/preset-react": "^7.22.15",
@@ -43,9 +42,6 @@
         "tslib": "^2.6.2",
         "typescript": "^5.1.6",
         "unified": "^11.0.3"
-    },
-    "babel": {
-        "presets": []
     },
     "eslintConfig": {
         "root": true,

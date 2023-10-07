@@ -1,10 +1,10 @@
 # gfm-blockquote-admonitions
 
-Inkdrop plugin to render admonitions in preview mode based on [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925)
+Inkdrop plugin to render [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925) in preview mode.
 
 ## Usage
 
-You can use admonitions in your Markdown documents by using the following syntax:
+You can use admonitions in your notes by using the following syntax:
 
 ```markdown
 > [!NOTE]
