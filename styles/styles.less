@@ -1,7 +1,8 @@
-// Colors
-@accentColorNote: #2f81f7;
-@accentColorImpotant: #a371f7;
-@accentColorWarning: #d29922;
+:root {
+    --gfm-blockquote-admonitions-note: var(--blue);
+    --gfm-blockquote-admonitions-important: var(--purple);
+    --gfm-blockquote-admonitions-warning: var(--orange);
+}
 
 .markdown-alert {
     &-title {
@@ -17,21 +18,21 @@
     &-type {
         &-note {
             .markdown-alert-title {
-                color: @accentColorNote;
+                color: var(--gfm-blockquote-admonitions-note);
             }
-            border-color: @accentColorNote;
+            border-color: var(--gfm-blockquote-admonitions-note);
         }
         &-important {
             .markdown-alert-title {
-                color: @accentColorImpotant;
+                color: var(--gfm-blockquote-admonitions-important);
             }
-            border-color: @accentColorImpotant;
+            border-color: var(--gfm-blockquote-admonitions-important);
         }
         &-warning {
             .markdown-alert-title {
-                color: @accentColorWarning;
+                color: var(--gfm-blockquote-admonitions-warning);
             }
-            border-color: @accentColorWarning;
+            border-color: var(--gfm-blockquote-admonitions-warning);
         }
     }
     margin-bottom: 16px;
