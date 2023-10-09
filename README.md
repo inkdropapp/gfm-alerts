@@ -25,10 +25,28 @@ You can use admonitions in your notes by using the following syntax:
 
 This will render the admonitions in preview mode as follows:
 
-![rendered admonitions](./img/preview-mode.png)
+| Default Dark UI Theme                                           | Nord UI Theme                                             |
+| --------------------------------------------------------------  | --------------------------------------------------------- |
+| ![rendered admonitions](./img/preview-mode-default-dark-ui.png) | ![rendered admonitions](./img/preview-mode-nord-ui.png)   |
+
 
 Note:
 The legacy admonition syntax is not supported. (eg. `> **Note**`)
+
+## Style
+
+Admonitions adjust their color based on the currently activated theme.
+If you want to change the color of the admonitions, you can do so by adding the following CSS to your `style.less` file:
+
+```css
+:root {
+    --gfm-blockquote-admonitions-note: #2f81f7;
+    --gfm-blockquote-admonitions-important: #a371f7;
+    --gfm-blockquote-admonitions-warning: #d29922;
+}
+```
+
+In this example, the colors of the admonitions are changed to the colors of GitHub's Dark Theme.
 
 ## Install
 
