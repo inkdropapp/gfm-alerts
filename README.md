@@ -15,20 +15,13 @@ You can use admonitions in your notes by using the following syntax:
 
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
-
-> [!NOTE]
-> Nesting of admonitions is not possible
-> 
-> > [!NOTE]  
-> > Test nested
 ```
 
 This will render the admonitions in preview mode as follows:
 
-| Default Dark UI Theme                                           | Nord UI Theme                                             |
-| --------------------------------------------------------------  | --------------------------------------------------------- |
-| ![rendered admonitions](./img/preview-mode-default-dark-ui.png) | ![rendered admonitions](./img/preview-mode-nord-ui.png)   |
-
+| Default Dark UI Theme                                           | Nord UI Theme                                           |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| ![rendered admonitions](./img/preview-mode-default-dark-ui.png) | ![rendered admonitions](./img/preview-mode-nord-ui.png) |
 
 Note:
 The legacy admonition syntax is not supported. (eg. `> **Note**`)
@@ -62,12 +55,15 @@ If you find a bug, you can also submit it to me by opening an [issue on Github](
 
 ## Changelog
 
-### 1.0.0 - Initial release
-- Render admonitions in preview mode - [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925)
+### v1.1.0 - Theme support
 
+-   Admonitions adjust their color based on the currently activated theme. (Thanks [@fus1ondev](https://github.com/fus1ondev))
+
+### v1.0.0 - Initial release
+
+-   Render admonitions in preview mode - [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925)
 
 ## Acknowledgements
 
-- Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./src/remark-gfm-blockquote-admonitions/README.md) (Apache-2.0 License)
-- [primer/octicons](https://github.com/primer/octicons) (MIT License)
-
+-   Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./src/remark-gfm-blockquote-admonitions/README.md) (Apache-2.0 License)
+-   [primer/octicons](https://github.com/primer/octicons) (MIT License)

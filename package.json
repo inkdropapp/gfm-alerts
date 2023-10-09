@@ -1,6 +1,6 @@
 {
     "name": "gfm-blockquote-admonitions",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Inkdrop plugin to render GitHub beta blockquote-based admonitions",
     "main": "lib/gfm-blockquote-admonitions",
     "author": "Keisir",
