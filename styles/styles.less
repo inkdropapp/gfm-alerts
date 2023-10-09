@@ -1,8 +1,3 @@
-// Colors
-@accentColorNote: #2f81f7;
-@accentColorImpotant: #a371f7;
-@accentColorWarning: #d29922;
-
 .markdown-alert {
     &-title {
         margin-bottom: 0.25em !important;
@@ -17,21 +12,21 @@
     &-type {
         &-note {
             .markdown-alert-title {
-                color: @accentColorNote;
+                color: var(--blue);
             }
-            border-color: @accentColorNote;
+            border-color: var(--blue);
         }
         &-important {
             .markdown-alert-title {
-                color: @accentColorImpotant;
+                color: var(--purple);
             }
-            border-color: @accentColorImpotant;
+            border-color: var(--purple);
         }
         &-warning {
             .markdown-alert-title {
-                color: @accentColorWarning;
+                color: var(--orange);
             }
-            border-color: @accentColorWarning;
+            border-color: var(--orange);
         }
     }
     margin-bottom: 16px;
