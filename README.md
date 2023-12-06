@@ -10,11 +10,17 @@ You can use admonitions in your notes by using the following syntax:
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 
+> [!TIP]
+> Optional information to help a user be more successful.
+
 > [!IMPORTANT]
 > Crucial information necessary for users to succeed.
 
 > [!WARNING]
 > Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 ```
 
 This will render the admonitions in preview mode as follows:
@@ -34,8 +40,10 @@ If you want to change the color of the admonitions, you can do so by adding the 
 ```css
 :root {
     --gfm-blockquote-admonitions-note: #2f81f7;
+    --gfm-blockquote-admonitions-tip: #3fb950;
     --gfm-blockquote-admonitions-important: #a371f7;
     --gfm-blockquote-admonitions-warning: #d29922;
+    --gfm-blockquote-admonitions-caution: #f85149;
 }
 ```
 
@@ -54,6 +62,10 @@ If you have any suggestions for this plugin, feel free to share them with me by 
 If you find a bug, you can also submit it to me by opening an [issue on Github](https://github.com/Keisir/inkdrop-gfm-blockquote-admonitions/issues).
 
 ## Changelog
+
+### v1.2.0 - New types
+
+-  Added support for `TIP` and `CAUTION` admonitions.
 
 ### v1.1.0 - Theme support
 
