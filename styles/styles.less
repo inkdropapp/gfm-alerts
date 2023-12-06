@@ -1,7 +1,9 @@
 :root {
     --gfm-blockquote-admonitions-note: var(--blue);
+    --gfm-blockquote-admonitions-tip: var(--green);
     --gfm-blockquote-admonitions-important: var(--purple);
     --gfm-blockquote-admonitions-warning: var(--orange);
+    --gfm-blockquote-admonitions-caution: var(--red);
 }
 
 .markdown-alert {
@@ -22,6 +24,12 @@
             }
             border-color: var(--gfm-blockquote-admonitions-note);
         }
+        &-tip {
+            .markdown-alert-title {
+                color: var(--gfm-blockquote-admonitions-tip);
+            }
+            border-color: var(--gfm-blockquote-admonitions-tip);
+        }
         &-important {
             .markdown-alert-title {
                 color: var(--gfm-blockquote-admonitions-important);
@@ -33,6 +41,12 @@
                 color: var(--gfm-blockquote-admonitions-warning);
             }
             border-color: var(--gfm-blockquote-admonitions-warning);
+        }
+        &-caution {
+            .markdown-alert-title {
+                color: var(--gfm-blockquote-admonitions-caution);
+            }
+            border-color: var(--gfm-blockquote-admonitions-caution);
         }
     }
     margin-bottom: 16px;
