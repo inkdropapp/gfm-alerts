@@ -27,7 +27,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepublishOnly": "npm-run-all lint format:check && npm run test run"
+    "prepublishOnly": "npm-run-all lint format:check build && npm run test run"
   },
   "devDependencies": {
     "@types/mdast": "^4.0.3",
