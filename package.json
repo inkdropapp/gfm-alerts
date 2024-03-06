@@ -4,7 +4,8 @@
   "description": "Inkdrop plugin to render GitHub blockquote-based admonitions",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "styles"
   ],
   "main": "dist/index.js",
   "exports": {
