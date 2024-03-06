@@ -195,25 +195,6 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
         // ----------vv
         '> [!WARNING]  \n' +
         '> Critical content demanding immediate user attention due to potential risks.\n',
-      config: {
-        classNameMaps: {
-          block: (title: string) =>
-            `admonition admonition--${title.toLowerCase()}`,
-          title: (title: string) =>
-            `gfm-alert-title gfm-alert-title--${title.toLowerCase()}`
-        },
-
-        titleTextMap: (title: string) => {
-          // Removes `![]`
-          let displayTitle = title.slice(2, -1)
-          // Capitalize
-          displayTitle = `${displayTitle.at(0)}${displayTitle.substring(1).toLowerCase()}`
-          return {
-            displayTitle,
-            checkedTitle: displayTitle
-          }
-        }
-      },
       assertions(html) {
         const elem = selectOne(
           'div.gfm-alert > p.gfm-alert-title:first-child',

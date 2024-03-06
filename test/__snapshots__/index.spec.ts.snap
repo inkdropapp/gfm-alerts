@@ -17,7 +17,7 @@ test</p>
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p>test</p>
 </div>"
@@ -25,23 +25,23 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform GitHub example (until 2024-01-02) with default config 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p>Highlights information that users should take into account, even when skimming.</p>
 </div>
-<div class="gfm-alert markdown-alert-type-tip">
+<div class="gfm-alert gfm-alert-type-tip">
 <p class="gfm-alert-title">Tip</p>
 <p>Optional information to help a user be more successful.</p>
 </div>
-<div class="gfm-alert markdown-alert-type-important">
+<div class="gfm-alert gfm-alert-type-important">
 <p class="gfm-alert-title">Important</p>
 <p>Crucial information necessary for users to succeed.</p>
 </div>
-<div class="gfm-alert markdown-alert-type-warning">
+<div class="gfm-alert gfm-alert-type-warning">
 <p class="gfm-alert-title">Warning</p>
 <p>Critical content demanding immediate user attention due to potential risks.</p>
 </div>
-<div class="gfm-alert markdown-alert-type-caution">
+<div class="gfm-alert gfm-alert-type-caution">
 <p class="gfm-alert-title">Caution</p>
 <p>Negative potential consequences of an action.</p>
 </div>"
@@ -49,7 +49,7 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform when title has 2 trailing spaces from issue #12 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-warning">
+<div class="gfm-alert gfm-alert-type-warning">
 <p class="gfm-alert-title">Warning</p>
 <p>Critical content demanding immediate user attention due to potential risks.</p>
 </div>"
@@ -57,13 +57,13 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform with nested ones 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p>test</p>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p>test</p>
-<div class="gfm-alert markdown-alert-type-warning">
+<div class="gfm-alert gfm-alert-type-warning">
 <p class="gfm-alert-title">Warning</p>
 <p>test</p>
 </div>
@@ -73,7 +73,7 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform with ordered lists from issue #4 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p></p>
 <ol>
@@ -86,7 +86,7 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform with title with trailing whitespaces to be trimmed 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p>test</p>
 </div>"
@@ -94,7 +94,7 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 
 exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > should transform with unordered lists from issue #4 1`] = `
 "<h1>Admonitions</h1>
-<div class="gfm-alert markdown-alert-type-note">
+<div class="gfm-alert gfm-alert-type-note">
 <p class="gfm-alert-title">Note</p>
 <p></p>
 <ul>
