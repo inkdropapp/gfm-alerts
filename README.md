@@ -52,7 +52,7 @@ In this example, the colors of the admonitions are changed to the colors of GitH
 ## Install
 
 ```bash
-ipm install gfm-blockquote-admonitions
+npm i @inkdropapp/remark-gfm-alerts
 ```
 
 ## Contact
