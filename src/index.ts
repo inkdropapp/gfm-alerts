@@ -11,7 +11,7 @@ import type { Plugin } from 'unified'
 import type { BuildVisitor } from 'unist-util-visit'
 import { visit } from 'unist-util-visit'
 
-import { Config, defaultConfig } from './config'
+import { Config, defaultConfig } from './config.js'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: any) => {
