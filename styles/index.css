@@ -1,0 +1,58 @@
+@layer defaults {
+  :where(:root, :host) {
+    --gfm-alert-note: var(--blue);
+    --gfm-alert-tip: var(--green);
+    --gfm-alert-important: var(--purple);
+    --gfm-alert-warning: var(--orange);
+    --gfm-alert-caution: var(--red);
+  }
+}
+
+.gfm-alert {
+  margin-bottom: 16px;
+  padding: 0 1em;
+  border-left: 0.25em solid;
+}
+
+.gfm-alert-title {
+  margin-bottom: 0.25em !important;
+  font-weight: 600;
+
+  & > span {
+    margin-right: 0.5em;
+    display: inline-flex;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+  }
+}
+
+.gfm-alert-type-note {
+  .gfm-alert-title {
+    color: var(--gfm-alert-note);
+  }
+  border-color: var(--gfm-alert-note);
+}
+.gfm-alert-type-tip {
+  .gfm-alert-title {
+    color: var(--gfm-alert-tip);
+  }
+  border-color: var(--gfm-alert-tip);
+}
+.gfm-alert-type-important {
+  .gfm-alert-title {
+    color: var(--gfm-alert-important);
+  }
+  border-color: var(--gfm-alert-important);
+}
+.gfm-alert-type-warning {
+  .gfm-alert-title {
+    color: var(--gfm-alert-warning);
+  }
+  border-color: var(--gfm-alert-warning);
+}
+.gfm-alert-type-caution {
+  .gfm-alert-title {
+    color: var(--gfm-alert-caution);
+  }
+  border-color: var(--gfm-alert-caution);
+}

@@ -39,11 +39,11 @@ If you want to change the color of the admonitions, you can do so by adding the 
 
 ```css
 :root {
-    --gfm-blockquote-admonitions-note: #2f81f7;
-    --gfm-blockquote-admonitions-tip: #3fb950;
-    --gfm-blockquote-admonitions-important: #a371f7;
-    --gfm-blockquote-admonitions-warning: #d29922;
-    --gfm-blockquote-admonitions-caution: #f85149;
+  --gfm-alert-note: #2f81f7;
+  --gfm-alert-tip: #3fb950;
+  --gfm-alert-important: #a371f7;
+  --gfm-alert-warning: #d29922;
+  --gfm-alert-caution: #f85149;
 }
 ```
 
@@ -52,7 +52,7 @@ In this example, the colors of the admonitions are changed to the colors of GitH
 ## Install
 
 ```bash
-ipm install gfm-blockquote-admonitions
+npm i @inkdropapp/remark-gfm-alerts
 ```
 
 ## Contact
@@ -65,17 +65,17 @@ If you find a bug, you can also submit it to me by opening an [issue on Github](
 
 ### v1.2.0 - New types
 
--  Added support for `TIP` and `CAUTION` admonitions.
+- Added support for `TIP` and `CAUTION` admonitions.
 
 ### v1.1.0 - Theme support
 
--   Admonitions adjust their color based on the currently activated theme. (Thanks [@fus1ondev](https://github.com/fus1ondev))
+- Admonitions adjust their color based on the currently activated theme. (Thanks [@fus1ondev](https://github.com/fus1ondev))
 
 ### v1.0.0 - Initial release
 
--   Render admonitions in preview mode - [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925)
+- Render admonitions in preview mode - [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925)
 
 ## Acknowledgements
 
--   Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./src/remark-gfm-blockquote-admonitions/README.md) (Apache-2.0 License)
--   [primer/octicons](https://github.com/primer/octicons) (MIT License)
+- Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./src/remark-gfm-blockquote-admonitions/README.md) (Apache-2.0 License)
+- [primer/octicons](https://github.com/primer/octicons) (MIT License)
