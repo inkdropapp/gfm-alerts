@@ -1,12 +1,12 @@
-# remark-gfm-blockquote-admonitions
+# remark-github-beta-blockquote-admonitions
 
 Based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/)
 
 Changes made:
+
 - Replaced the config with a new one that is compatible with this plugin.
 - Admonitions cannot be nested.
 - Added a icon to the title.
-
 
 License:
 
@@ -213,5 +213,3 @@ License:
    See the License for the specific language governing permissions and
    limitations under the License.
 ```
-
-

@@ -1,89 +1,50 @@
 {
-    "name": "gfm-blockquote-admonitions",
-    "version": "1.1.0",
-    "description": "Inkdrop plugin to render GitHub beta blockquote-based admonitions",
-    "main": "lib/gfm-blockquote-admonitions",
-    "author": "Keisir",
-    "license": "MIT",
-    "repository": "https://github.com/Keisir/inkdrop-gfm-blockquote-admonitions",
-    "scripts": {
-        "build": "rimraf --glob lib/* && rollup -c --bundleConfigAsCjs",
-        "watch": "rollup -c --watch --bundleConfigAsCjs",
-        "lint": "eslint . --ext .ts --ignore-pattern 'node_modules/*'",
-        "prettier-format": "prettier **/*.{ts,tsx,less,yml,json} --ignore-path .gitignore --write",
-        "prettier-check": "prettier **/*.{ts,tsx,less,yml,json} --ignore-path .gitignore --check"
-    },
-    "engines": {
-        "inkdrop": ">=5.6.0 <7"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.23.0",
-        "@babel/preset-react": "^7.22.15",
-        "@babel/preset-typescript": "^7.23.0",
-        "@rollup/plugin-babel": "^6.0.4",
-        "@rollup/plugin-node-resolve": "^15.2.2",
-        "@rollup/plugin-typescript": "^11.1.5",
-        "@types/codemirror": "^5.60.5",
-        "@types/event-kit": "^2.4.1",
-        "@types/mdast": "^4.0.1",
-        "@types/pouchdb-core": "^7.0.11",
-        "@types/react": "^18.2.0",
-        "@typescript-eslint/eslint-plugin": "^6.4.0",
-        "@typescript-eslint/parser": "^6.4.0",
-        "electron": "^24.8.5",
-        "eslint": "^8.47.0",
-        "event-kit": "^2.5.3",
-        "inkdrop-model": "^2.7.1",
-        "prettier": "^3.0.2",
-        "prettier-plugin-organize-imports": "^3.2.3",
-        "rimraf": "^5.0.5",
-        "rollup": "^4.0.2",
-        "tslib": "^2.6.2",
-        "typescript": "^5.1.6",
-        "unified": "^10.1.2",
-        "unist-util-visit": "^5.0.0"
-    },
-    "eslintConfig": {
-        "root": true,
-        "parser": "@typescript-eslint/parser",
-        "plugins": [
-            "@typescript-eslint"
-        ],
-        "extends": [
-            "eslint:recommended",
-            "plugin:@typescript-eslint/eslint-recommended",
-            "plugin:@typescript-eslint/recommended"
-        ],
-        "rules": {
-            "no-console": [
-                "error",
-                {
-                    "allow": [
-                        "clear",
-                        "info",
-                        "error",
-                        "warn"
-                    ]
-                }
-            ],
-            "arrow-body-style": [
-                "error",
-                "as-needed"
-            ]
-        }
-    },
-    "prettier": {
-        "singleQuote": true,
-        "semi": true,
-        "trailingComma": "none",
-        "printWidth": 150,
-        "tabWidth": 4,
-        "arrowParens": "always",
-        "bracketSameLine": true,
-        "endOfLine": "auto",
-        "singleAttributePerLine": true,
-        "plugins": [
-            "prettier-plugin-organize-imports"
-        ]
+  "name": "gfm-blockquote-admonitions",
+  "version": "1.1.0",
+  "description": "Inkdrop plugin to render GitHub blockquote-based admonitions",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
+  },
+  "author": "Keisir",
+  "license": "MIT",
+  "repository": "https://github.com/inkdropapp/gfm-alerts",
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "test": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/mdast": "^4.0.3",
+    "@types/react": "^18.2.0",
+    "@types/unist": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "css-select": "^5.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "htmlparser2": "^9.1.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "typescript": "^5.3.3",
+    "unified": "^11.0.4",
+    "vite": "^5.1.5",
+    "vitest": "^1.3.1"
+  },
+  "dependencies": {
+    "unist-util-visit": "^5.0.0"
+  }
 }
