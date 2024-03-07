@@ -204,4 +204,23 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
       }
     }
   )
+
+  defineCase('should transform a plain blockquote #13', {
+    input: '> blockquote\n',
+    assertions(html) {
+      const elem = selectOne('blockquote > p', parseDocument(html))
+      expect(elem).to.have.nested.property('firstChild.data', 'blockquote')
+    }
+  })
+
+  defineCase('should transform a plain blockquote #14', {
+    input: '> > line 1\n> > line 2\n> > line 3',
+    assertions(html) {
+      const elem = selectOne('blockquote > p', parseDocument(html))
+      expect(elem).to.have.nested.property(
+        'firstChild.data',
+        'line 1\nline 2\nline 3'
+      )
+    }
+  })
 })

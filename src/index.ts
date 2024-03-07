@@ -11,7 +11,7 @@ import type { Plugin } from 'unified'
 import type { BuildVisitor } from 'unist-util-visit'
 import { visit } from 'unist-util-visit'
 
-import { Config, defaultConfig } from './config.js'
+import { AlertType, Config, defaultConfig } from './config.js'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: any) => {
@@ -32,6 +32,7 @@ const processNode =
     if (paragraph.children[0]?.type != 'text') return
     const text = paragraph.children[0]
     let title: string
+    let admonitionType: AlertType | null = null
     // A link break after the title is explicitly required by GitHub
     const titleEnd = text.value.indexOf('\n')
     if (titleEnd < 0) {
@@ -56,9 +57,14 @@ const processNode =
       // Considering the reason why the paragraph ends here, the following one should be a children of the blockquote, which means it is always a block.
       // So no more check is required.
       title = text.value
+      admonitionType = config.types[title]
 
-      // Remove the text as the title
-      paragraph.children.shift()
+      if (admonitionType) {
+        // Remove the text as the title
+        paragraph.children.shift()
+      } else {
+        return
+      }
     } else {
       const textBody = text.value.substring(titleEnd + 1)
       title = text.value.substring(0, titleEnd)
@@ -69,12 +75,11 @@ const processNode =
         title = title.substring(0, title.length - m[0].length)
       }
 
+      admonitionType = config.types[title]
+      if (!admonitionType) return
       // Update the text body to remove the title
       text.value = textBody
     }
-
-    const admonitionType = config.types[title]
-    if (!admonitionType) return
 
     const paragraphTitleText: Text = {
       value: admonitionType.title,

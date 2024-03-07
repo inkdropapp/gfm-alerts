@@ -1,7 +1,13 @@
+export interface AlertType {
+  svgIcon: string
+  title: string
+  cssClass: string
+}
+
 export interface Config {
   blockCssClass: string
   titleCssClass: string
-  types: Record<string, { svgIcon: string; title: string; cssClass: string }>
+  types: Record<string, AlertType>
 }
 
 export const defaultConfig: Config = {
