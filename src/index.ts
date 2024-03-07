@@ -19,6 +19,7 @@ const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: any) => {
 }
 
 export default remarkGfmBlockquoteAdmonitionsPlugin
+export { defaultConfig }
 
 const processNode =
   (config: Config): BuildVisitor =>
