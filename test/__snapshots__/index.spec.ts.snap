@@ -120,3 +120,25 @@ exports[`GitHub beta blockquote-based admonitions with titles like [!NOTE] > sho
 </ul>
 </div>"
 `;
+
+exports[`verify default behavior with plugin enabled > should transform a plain blockquote with line breaks ("  " - note the two spaces) 1`] = `
+"<blockquote>
+<p>Each time you increase the amount of code, your software grows exponentially more complicated.<br>
+-- DHH, Getting Real</p>
+</blockquote>"
+`;
+
+exports[`verify default behavior with plugin enabled > should transform a plain blockquote with line breaks (\\) 1`] = `
+"<blockquote>
+<p>Each time you increase the amount of code, your software grows exponentially more complicated.<br>
+-- DHH, Getting Real</p>
+</blockquote>"
+`;
+
+exports[`verify default behavior with plugin enabled > should transform a plain blockquote with line breaks (\\) 2x 1`] = `
+"<blockquote>
+<p>Each time you increase the amount of code, your software grows exponentially more complicated.<br>
+-- DHH, Getting Real<br>
+-- DHH, Getting Real</p>
+</blockquote>"
+`;
