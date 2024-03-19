@@ -41,14 +41,17 @@ const processNode =
       // So we just need to addtionally check if the following one is a block.
       // The legacy title variant is not affected since it checks an inline and does not care about the newline.
 
+      // If this is not a gfm alert then we would manipulate the original children and the next processor would not be able to handle the children correctly.
+      const paragraphChildrenCopy = [...paragraph.children]
+
       // No addtional inlines can exist in this paragraph for the title...
-      if (paragraph.children.length > 1) {
+      if (paragraphChildrenCopy.length > 1) {
         // Unless it is an inline break, which can be transformed to from 2 spaces with a newline.
-        if (paragraph.children.at(1)?.type == 'break') {
+        if (paragraphChildrenCopy.at(1)?.type == 'break') {
           // When it is, we actually have already found the line break required by GitHub.
           // So we just strip the additional `<br>` element.
           // The title element will be removed later.
-          paragraph.children.splice(1, 1)
+          paragraphChildrenCopy.splice(1, 1)
         } else {
           return
         }
@@ -61,6 +64,7 @@ const processNode =
 
       if (admonitionType) {
         // Remove the text as the title
+        paragraph.children.shift()
         paragraph.children.shift()
       } else {
         return

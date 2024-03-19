@@ -224,3 +224,42 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
     }
   })
 })
+
+describe('verify default behavior with plugin enabled', function () {
+  defineCase('should transform a plain blockquote with line breaks (\\)', {
+    input: `\
+> Each time you increase the amount of code, your software grows exponentially more complicated.\\
+> -- DHH, Getting Real
+`,
+    assertions(html) {
+      const elem = selectAll('blockquote > p > br', parseDocument(html))
+      expect(elem).to.lengthOf(1)
+    }
+  })
+
+  defineCase(
+    'should transform a plain blockquote with line breaks ("  " - note the two spaces)',
+    {
+      input: `\
+> Each time you increase the amount of code, your software grows exponentially more complicated.  
+> -- DHH, Getting Real
+`,
+      assertions(html) {
+        const elem = selectAll('blockquote > p > br', parseDocument(html))
+        expect(elem).to.lengthOf(1)
+      }
+    }
+  )
+
+  defineCase('should transform a plain blockquote with line breaks (\\) 2x', {
+    input: `\
+> Each time you increase the amount of code, your software grows exponentially more complicated.\\
+> -- DHH, Getting Real\\
+> -- DHH, Getting Real
+`,
+    assertions(html) {
+      const elem = selectAll('blockquote > p > br', parseDocument(html))
+      expect(elem).to.lengthOf(2)
+    }
+  })
+})
