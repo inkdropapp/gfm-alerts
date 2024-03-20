@@ -27,31 +27,31 @@ p.gfm-alert-title {
 }
 
 .gfm-alert-type-note {
-  p.gfm-alert-title {
+  > p.gfm-alert-title {
     color: var(--gfm-alert-note);
   }
   border-color: var(--gfm-alert-note);
 }
 .gfm-alert-type-tip {
-  p.gfm-alert-title {
+  > p.gfm-alert-title {
     color: var(--gfm-alert-tip);
   }
   border-color: var(--gfm-alert-tip);
 }
 .gfm-alert-type-important {
-  p.gfm-alert-title {
+  > p.gfm-alert-title {
     color: var(--gfm-alert-important);
   }
   border-color: var(--gfm-alert-important);
 }
 .gfm-alert-type-warning {
-  p.gfm-alert-title {
+  > p.gfm-alert-title {
     color: var(--gfm-alert-warning);
   }
   border-color: var(--gfm-alert-warning);
 }
 .gfm-alert-type-caution {
-  p.gfm-alert-title {
+  > p.gfm-alert-title {
     color: var(--gfm-alert-caution);
   }
   border-color: var(--gfm-alert-caution);
