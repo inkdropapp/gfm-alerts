@@ -1,6 +1,6 @@
 {
   "name": "@inkdropapp/remark-gfm-alerts",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Inkdrop plugin to render GitHub blockquote-based admonitions",
   "type": "module",
   "files": [
