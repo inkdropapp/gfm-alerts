@@ -8,13 +8,13 @@
 
 import type { Blockquote, Html, Paragraph, Text } from 'mdast'
 import type { Plugin } from 'unified'
+import type { Node } from 'unist'
 import type { BuildVisitor } from 'unist-util-visit'
 import { visit } from 'unist-util-visit'
 
 import { AlertType, Config, defaultConfig } from './config.js'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: any) => {
+const remarkGfmBlockquoteAdmonitionsPlugin: Plugin = () => (tree: Node) => {
   visit(tree, processNode(defaultConfig))
 }
 
@@ -92,14 +92,14 @@ const processNode =
     const paragraphTitle: Paragraph = {
       type: 'paragraph',
       children: [paragraphIcon, paragraphTitleText],
-      data: { hProperties: { className: config.titleCssClass } }
+      data: { hProperties: { className: [config.titleCssClass] } }
     }
     blockquote.children.unshift(paragraphTitle)
 
     blockquote.data = {
       ...blockquote.data,
       hProperties: {
-        className: `${config.blockCssClass} ${admonitionType.cssClass}`
+        className: [config.blockCssClass, admonitionType.cssClass]
       },
       hName: 'div'
     }

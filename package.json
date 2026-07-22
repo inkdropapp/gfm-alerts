@@ -2,11 +2,14 @@
   "name": "@inkdropapp/remark-gfm-alerts",
   "version": "2.0.9",
   "description": "Inkdrop plugin to render GitHub blockquote-based admonitions",
-  "type": "module",
+  "license": "MIT",
+  "author": "Keisir",
+  "repository": "https://github.com/inkdropapp/gfm-alerts",
   "files": [
     "dist",
     "styles"
   ],
+  "type": "module",
   "main": "dist/index.js",
   "exports": {
     ".": {
@@ -22,41 +25,36 @@
       "require": "./styles/index.css"
     }
   },
-  "author": "Keisir",
-  "license": "MIT",
-  "repository": "https://github.com/inkdropapp/gfm-alerts",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "test": "vitest",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "test": "vitest --run",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check .",
+    "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm-run-all lint format:check build && npm run test run"
   },
+  "dependencies": {
+    "unist-util-visit": "^5.1.0"
+  },
   "devDependencies": {
-    "@types/mdast": "^4.0.3",
-    "@types/node": "^20.12.11",
-    "@types/react": "^18.2.0",
-    "@types/unist": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "css-select": "^5.1.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "htmlparser2": "^9.1.0",
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/unist": "^3.0.3",
+    "css-select": "^7.0.0",
+    "htmlparser2": "^12.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "rehype-stringify": "^10.0.0",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
+    "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.0",
-    "typescript": "^5.3.3",
-    "unified": "^11.0.4",
-    "vite": "^5.1.5",
-    "vitest": "^1.3.1"
+    "remark-rehype": "^11.1.2",
+    "typescript": "^7.0.2",
+    "unified": "^11.0.5",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
   },
-  "dependencies": {
-    "unist-util-visit": "^5.0.0"
-  }
+  "packageManager": "pnpm@11.12.0"
 }

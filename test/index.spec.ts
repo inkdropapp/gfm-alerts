@@ -8,6 +8,7 @@ import { remark } from 'remark'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { describe, expect, it } from 'vitest'
+
 import plugin from '../src/index.js'
 
 function defineCase(
@@ -41,10 +42,7 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
 > test
 `,
     assertions(html) {
-      const elem = selectOne(
-        'div.gfm-alert > p.gfm-alert-title:first-child',
-        parseDocument(html)
-      )
+      const elem = selectOne('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
       expect(elem).to.have.nested.property('firstChild.data', 'Note')
     }
   })
@@ -90,10 +88,7 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
 > - Here you go one more time
 `,
     assertions(html) {
-      const elem = selectOne(
-        'div.gfm-alert > p.gfm-alert-title:first-child',
-        parseDocument(html)
-      )
+      const elem = selectOne('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
       expect(elem).to.have.nested.property('firstChild.data', 'Note')
     }
   })
@@ -107,52 +102,38 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
 > 3. Here you go one more time
 `,
     assertions(html) {
-      const elem = selectOne(
-        'div.gfm-alert > p.gfm-alert-title:first-child',
-        parseDocument(html)
-      )
+      const elem = selectOne('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
       expect(elem).to.have.nested.property('firstChild.data', 'Note')
     }
   })
 
-  defineCase(
-    'should not transform when title is not in form [!NOTE] but legacy **Note**',
-    {
-      input: `\
+  defineCase('should not transform when title is not in form [!NOTE] but legacy **Note**', {
+    input: `\
 # Admonitions
 > **Note**
 > test
 `,
-      assertions(html) {
-        const elem = selectOne('div.gfm-alert', parseDocument(html))
-        expect(elem).to.be.null
-      }
+    assertions(html) {
+      const elem = selectOne('div.gfm-alert', parseDocument(html))
+      expect(elem).to.be.null
     }
-  )
+  })
 
-  defineCase(
-    'should transform with title with trailing whitespaces to be trimmed',
-    {
-      input: `\
+  defineCase('should transform with title with trailing whitespaces to be trimmed', {
+    input: `\
 # Admonitions
 > [!NOTE] \r\t\v\
 
 > test
 `,
-      assertions(html) {
-        const elem = selectOne(
-          'div.gfm-alert > p.gfm-alert-title:first-child',
-          parseDocument(html)
-        )
-        expect(elem).to.have.nested.property('firstChild.data', 'Note')
-      }
+    assertions(html) {
+      const elem = selectOne('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
+      expect(elem).to.have.nested.property('firstChild.data', 'Note')
     }
-  )
+  })
 
-  defineCase(
-    'should transform GitHub example (until 2024-01-02) with default config',
-    {
-      input: `\
+  defineCase('should transform GitHub example (until 2024-01-02) with default config', {
+    input: `\
 # Admonitions
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
@@ -169,41 +150,31 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
 > [!CAUTION]
 > Negative potential consequences of an action.
 `,
-      assertions(html) {
-        const elems = selectAll(
-          'div.gfm-alert > p.gfm-alert-title:first-child',
-          parseDocument(html)
-        )
-        expect(elems).to.have.lengthOf(5)
-        expect(elems[0]).to.have.nested.property('firstChild.data', 'Note')
-        expect(elems[1]).to.have.nested.property('firstChild.data', 'Tip')
-        expect(elems[2]).to.have.nested.property('firstChild.data', 'Important')
-        expect(elems[3]).to.have.nested.property('firstChild.data', 'Warning')
-        expect(elems[4]).to.have.nested.property('firstChild.data', 'Caution')
-      }
+    assertions(html) {
+      const elems = selectAll('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
+      expect(elems).to.have.lengthOf(5)
+      expect(elems[0]).to.have.nested.property('firstChild.data', 'Note')
+      expect(elems[1]).to.have.nested.property('firstChild.data', 'Tip')
+      expect(elems[2]).to.have.nested.property('firstChild.data', 'Important')
+      expect(elems[3]).to.have.nested.property('firstChild.data', 'Warning')
+      expect(elems[4]).to.have.nested.property('firstChild.data', 'Caution')
     }
-  )
+  })
 
-  defineCase(
-    'should transform when title has 2 trailing spaces from issue #12',
-    {
-      input:
-        '# Admonitions\n' +
-        // So that the title isn't put inline with the forecoming text,
-        // when no GFM admonitions are available.
-        // These 2 spaces with the newline are transformed into an inline break.
-        // ----------vv
-        '> [!WARNING]  \n' +
-        '> Critical content demanding immediate user attention due to potential risks.\n',
-      assertions(html) {
-        const elem = selectOne(
-          'div.gfm-alert > p.gfm-alert-title:first-child',
-          parseDocument(html)
-        )
-        expect(elem).to.have.nested.property('firstChild.data', 'Warning')
-      }
+  defineCase('should transform when title has 2 trailing spaces from issue #12', {
+    input:
+      '# Admonitions\n' +
+      // So that the title isn't put inline with the forecoming text,
+      // when no GFM admonitions are available.
+      // These 2 spaces with the newline are transformed into an inline break.
+      // ----------vv
+      '> [!WARNING]  \n' +
+      '> Critical content demanding immediate user attention due to potential risks.\n',
+    assertions(html) {
+      const elem = selectOne('div.gfm-alert > p.gfm-alert-title:first-child', parseDocument(html))
+      expect(elem).to.have.nested.property('firstChild.data', 'Warning')
     }
-  )
+  })
 
   defineCase('should transform a plain blockquote #13', {
     input: '> blockquote\n',
@@ -217,10 +188,7 @@ describe('GitHub beta blockquote-based admonitions with titles like [!NOTE]', fu
     input: '> > line 1\n> > line 2\n> > line 3',
     assertions(html) {
       const elem = selectOne('blockquote > p', parseDocument(html))
-      expect(elem).to.have.nested.property(
-        'firstChild.data',
-        'line 1\nline 2\nline 3'
-      )
+      expect(elem).to.have.nested.property('firstChild.data', 'line 1\nline 2\nline 3')
     }
   })
 })
@@ -237,19 +205,16 @@ describe('verify default behavior with plugin enabled', function () {
     }
   })
 
-  defineCase(
-    'should transform a plain blockquote with line breaks ("  " - note the two spaces)',
-    {
-      input: `\
+  defineCase('should transform a plain blockquote with line breaks ("  " - note the two spaces)', {
+    input: `\
 > Each time you increase the amount of code, your software grows exponentially more complicated.  
 > -- DHH, Getting Real
 `,
-      assertions(html) {
-        const elem = selectAll('blockquote > p > br', parseDocument(html))
-        expect(elem).to.lengthOf(1)
-      }
+    assertions(html) {
+      const elem = selectAll('blockquote > p > br', parseDocument(html))
+      expect(elem).to.lengthOf(1)
     }
-  )
+  })
 
   defineCase('should transform a plain blockquote with line breaks (\\) 2x', {
     input: `\
