@@ -1,4 +1,4 @@
-# gfm-blockquote-admonitions
+# @inkdropapp/remark-gfm-alerts
 
 Inkdrop plugin to render [GitHub beta blockquote-based admonitions](https://github.com/orgs/community/discussions/16925) in preview mode.
 
@@ -57,9 +57,9 @@ npm i @inkdropapp/remark-gfm-alerts
 
 ## Contact
 
-If you have any suggestions for this plugin, feel free to share them with me by opening an [issue on Github](https://github.com/Keisir/inkdrop-gfm-blockquote-admonitions/issues).
+If you have any suggestions for this plugin, feel free to share them with me by opening an [issue on Github](https://github.com/inkdropapp/gfm-alerts/issues).
 
-If you find a bug, you can also submit it to me by opening an [issue on Github](https://github.com/Keisir/inkdrop-gfm-blockquote-admonitions/issues).
+If you find a bug, you can also submit it to me by opening an [issue on Github](https://github.com/inkdropapp/gfm-alerts/issues).
 
 ## Changelog
 
@@ -77,5 +77,5 @@ If you find a bug, you can also submit it to me by opening an [issue on Github](
 
 ## Acknowledgements
 
-- Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./src/remark-gfm-blockquote-admonitions/README.md) (Apache-2.0 License)
+- Remark Plugin based on [remark-github-beta-blockquote-admonitions](https://github.com/myl7/remark-github-beta-blockquote-admonitions/) - [see](./README-remark-github-beta-blockquote-admonitions.md) (Apache-2.0 License)
 - [primer/octicons](https://github.com/primer/octicons) (MIT License)
